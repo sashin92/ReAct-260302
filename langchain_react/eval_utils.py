@@ -70,3 +70,22 @@ def get_metrics(pred_answer, gt_answer):
     em = int(pred == gt)
     f1 = f1_score(pred_answer, gt_answer)[0]
     return {"em": em, "f1": f1, "reward": em}
+
+
+def majority_vote(answers: list[str]) -> tuple[str, float]:
+    """다수결 투표. (최다 답, 일치율)을 반환한다.
+
+    answers를 normalize하여 가장 많이 등장한 답을 선택하고,
+    원본 형태의 답과 해당 답의 비율(confidence)을 반환한다.
+    """
+    if not answers:
+        return "", 0.0
+    normalized = [normalize_answer(a) for a in answers]
+    counter = Counter(normalized)
+    most_common, count = counter.most_common(1)[0]
+    confidence = count / len(normalized)
+    # normalize 전 원본 형태의 답을 반환
+    for a, n in zip(answers, normalized):
+        if n == most_common:
+            return a, confidence
+    return answers[0], confidence
