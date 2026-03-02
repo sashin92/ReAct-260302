@@ -1,0 +1,8 @@
+openai
+requests
+dotenv
+PyYAML
+beautifulsoup4
+gym
+ipykernel
+# alfworld

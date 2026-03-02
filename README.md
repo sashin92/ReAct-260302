@@ -1,3 +1,6 @@
+# NOTE - IMPORTANT
+wikipedia 요청 시, 메일 주소는 변경 후 사용 바람.(wikienv.py: 104 line)
+
 # ReAct Prompting
 
 GPT-3 prompting code for ICLR 2023 paper [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629).
