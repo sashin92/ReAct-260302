@@ -6,3 +6,8 @@ beautifulsoup4
 gym
 ipykernel
 # alfworld
+
+# LangChain / LangGraph
+langchain>=0.3
+langchain-openai>=0.3
+langgraph>=0.3
